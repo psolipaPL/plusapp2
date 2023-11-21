@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>cart</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">cart</ion-title>
+    </ion-toolbar>
+  </ion-header>
+</ion-content>
+<ion-toolbar class="bottom-bar">
+  <ion-grid>
+    <ion-row class="ion-text-center ion-safe-bottom">
+      <ion-col><ion-icon name="home-outline" routerLink="/home" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col><ion-icon name="library-outline" routerLink="/promotions" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col><ion-icon name="search-outline" routerLink="/search" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col><ion-icon name="cart-outline" routerLink="/cart" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col><ion-icon name="ellipsis-horizontal-outline" routerLink="/more" routerLinkActive="active-link"></ion-icon></ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>

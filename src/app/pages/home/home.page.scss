@@ -1,0 +1,23 @@
+.header-qrcode{
+  font-size: 1.33333333em;
+  margin-right: 8px;
+}
+
+.searchbar-home{
+    border: 0;
+    border-radius: 20px 20px 20px 6px;
+    background-color: white;
+    color: grey !important;
+    height: 100%;
+    max-height: 48px;
+    min-height: 48px;
+    max-width: 100%;
+    margin: auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin: 12px 16px;
+  }
+
+  .display-flex{
+    display: flex;
+  }

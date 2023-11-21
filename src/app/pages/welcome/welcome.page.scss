@@ -1,0 +1,51 @@
+.onboarding-start-layout{
+    background: url('../../../assets/images/ECP_Mobile_Assets.app_start_BG.jpg') 0 0/100% 100% no-repeat;
+    height: 100%;
+}
+
+.onboarding-start-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.onboarding-start-wrapper .onboarding-start-top,
+.onboarding-start-wrapper .onboarding-start-bottom {
+    display: flex;
+    flex: 1;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.onboarding-start-wrapper .onboarding-start-bottom a{
+    padding-bottom:var(--ion-safe-area-bottom);
+}
+
+.onboarding-start-wrapper .onboarding-options {
+    width: 100%;
+    padding: 24px 16px 8px 16px;
+    background: rgb(101 85 179 / 90%);
+    text-align: center;
+}
+
+.iphonex .onboarding-start-wrapper .onboarding-options {
+    padding-bottom: calc(var(--os-safe-area-bottom) + var(--space-s));
+}
+
+.onboarding-start-wrapper .onboarding-options .onboarding-options-buttons:nth-of-type(2).button{
+    color: white;
+    border-color: white
+}
+
+.onboarding-start-wrapper .onboarding-options .onboarding-options-buttons>a {
+    color: white;
+}
+
+.ios .onboarding-start-wrapper .onboarding-options {
+    padding-bottom: calc(var(--ion-safe-area-bottom) + var(--space-s));
+}
+
+.onboarding-start-wrapper .onboarding-options-buttons{
+    display: flex;
+    flex-direction: column;
+}

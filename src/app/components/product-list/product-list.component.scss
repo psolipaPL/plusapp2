@@ -1,0 +1,64 @@
+ion-item::part(native) {
+    background-color: white;
+    padding: var(--space-base);
+    padding-right: unset;
+}
+
+ion-item::part(native) slot::end{
+align-items: inherit;
+}
+
+ion-img{
+    height: 100px
+}
+.plp-list-item{
+    background-color: white;
+    display: flex;
+    align-items: stretch;
+    padding: 16px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.plp-list-item .plp-item-image{
+    height: 120px; 
+    width:120px; 
+    padding-right: 16px;
+}
+
+.plp-list-item .plp-item-image ion-img{
+    height: 100px; 
+    width: 100px;
+}
+
+.plp-list-item .plp-list-item-content{
+    display: flex; 
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.plp-list-item .plp-list-item-content .plp-item-name{
+    color: #333333;
+    font-weight: 500;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.25;
+}
+
+.plp-list-item .plp-list-item-content .plp-item-complementary{
+    color: #999999;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: var(--space-xs);
+    line-height: 1.25;
+}
+
+.plp-list-item .plp-list-item-content .plp-item-price{
+    color: #333333;
+    font-size: 28px;
+    line-height: 32px;
+    font-weight: 700;
+}
