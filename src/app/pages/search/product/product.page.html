@@ -1,24 +1,47 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>{{sku}}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-toolbar class="bottom-bar ion-safe-bottom" slot="start">
+  <div style="display: flex; justify-content: space-between; padding: 0 var(--space-base)">
+    <div (click)="navigateBack()"><ion-icon name="arrow-back-outline"></ion-icon></div>
+    <div></div>
+    <div></div>
+  </div>
+</ion-toolbar>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">{{sku}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="product-header">
+    <div class="text-align-center product-detail-image-wrapper">
+      <div class="product-header-image" id="b4-b1-b1-b2-Image">
+          <ion-img src="../assets/images/plus.png"></ion-img>
+      </div>
+    </div>
+    <div class="product-detail-content-wrapper">
+      <div class="heading1 margin-top-m font-bold">Eat Me Babycorn</div>
+      <div class="text-neutral-5 margin-top-s product-header-additional-info" id="b4-b1-b1-b2-AdditionalInfo">
+        <span class="margin-right-s">Per Bak 125 g</span>
+      </div>
+      <div data-container="" class="product-price-wrapper">
+        <div class="product-header-logo-price-top ph" id="b4-b1-b1-b2-PriceTopLogo"></div>
+        <div data-container="" class="product-price margin-top-s OSInline">
+          <div class="font-bold product-header-price-integer" id="b4-b1-b1-b2-PriceInteger">
+            <span>1.</span>
+          </div>
+          <div class="heading1 font-black product-header-price-decimals" id="b4-b1-b1-b2-PriceDecimals"><span
+              data-expression="" class="place">00</span></div>
+          <div class="product-header-price-previous ph" id="b4-b1-b1-b2-PricePrevious"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </ion-content>
 <ion-toolbar class="bottom-bar ion-safe-bottom">
   <ion-grid>
     <ion-row class="ion-text-center">
-      <ion-col routerLink="/home" ><ion-icon name="home-outline" routerLinkActive="active-link"></ion-icon></ion-col>
-      <ion-col routerLink="/promotions" ><ion-icon name="library-outline" routerLinkActive="active-link"></ion-icon></ion-col>
-      <ion-col routerLink="/search"><ion-icon name="search-outline"  class="active-link"></ion-icon></ion-col>
-      <ion-col routerLink="/cart"><ion-icon name="cart-outline"  routerLinkActive="active-link"></ion-icon></ion-col>
-      <ion-col routerLink="/more"><ion-icon name="ellipsis-horizontal-outline" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col routerLink="/home"><ion-icon name="home-outline" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col routerLink="/promotions"><ion-icon name="library-outline"
+          routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col routerLink="/search"><ion-icon name="search-outline" class="active-link"></ion-icon></ion-col>
+      <ion-col routerLink="/cart"><ion-icon name="cart-outline" routerLinkActive="active-link"></ion-icon></ion-col>
+      <ion-col routerLink="/more"><ion-icon name="ellipsis-horizontal-outline"
+          routerLinkActive="active-link"></ion-icon></ion-col>
     </ion-row>
   </ion-grid>
 </ion-toolbar>

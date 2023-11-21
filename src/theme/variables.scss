@@ -98,6 +98,9 @@
   --border-size-s: 1px;
   --border-size-m: 2px;
   --border-size-l: 3px;
+
+  /*Color*/
+  --text-color-neutral-5: #999999;
 }
 
 @media (prefers-color-scheme: light) {
@@ -363,4 +366,20 @@ ion-button{
 
 ion-toolbar{
   --background: white;
+}
+
+.margin-top-m{
+  margin-top: var(--space-m);
+}
+
+.margin-right-s{
+  margin-right: var(--space-s);
+}
+
+.text-neutral-5{
+  color: var(--text-color-neutral-5)
+}
+
+.margin-top-s{
+  margin-top: var(--space-s);
 }

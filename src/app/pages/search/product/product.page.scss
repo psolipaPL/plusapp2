@@ -1,0 +1,28 @@
+.product-header{
+    padding: 0 var(--space-base);
+    padding-top: 0;
+    background-color: white;
+}
+
+.product-header .product-detail-image-wrapper{
+    padding-bottom: 0;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-header-image,
+.product-header-image ion-img::part(image){
+    max-height: 216px;
+    max-width: 100%;
+}
+
+.product-detail-content-wrapper{
+    margin-top: var(--space-m);
+}
+
+.heading1{
+    line-height: 32px;
+    font-size: 24px;
+    color: #333333;
+}

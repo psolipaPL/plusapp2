@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,11 +10,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ProductPage implements OnInit {
   sku: any;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private location: Location) { 
     this.sku = this.route.snapshot.paramMap.get('sku')
   }
 
   ngOnInit() {
+  }
+
+  navigateBack():void{
+    this.location.back();
   }
 
 }
