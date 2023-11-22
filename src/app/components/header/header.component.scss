@@ -1,0 +1,82 @@
+.header {
+    background-color: var(--ion-color-primary);
+    box-shadow: 0 1px 5px 0 rgba(21, 24, 26, 0.1);
+    z-index: 100;
+}
+
+.header-topbar {
+    height: 32px;
+    position: relative;
+    z-index: 1;
+    color: black;
+    padding: var(--space-none) var(--space-xl);
+}
+
+.header-top {
+    background: var(--ion-color-primary);
+    padding: var(--space-none) var(--space-xl);
+    z-index: 1;
+    position: relative;
+    height: 80px;
+}
+
+.header-content {
+    height: 100%;
+    align-items: center;
+}
+
+.layout-application-title {
+    height: 40px;
+    background: url('../../../assets/images/ECP_Mobile_Assets.plus_logo_spash.svg');
+    background-size: 120px 26px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+}
+
+.header-navigation{
+    -webkit-box-flex: 1;
+    flex: 1;
+}
+
+.header-search-wrapper{
+    max-width: 540px;
+    margin-left: var(--space-xxl);
+    margin-right: var(--space-xxl);
+}
+
+.header-search-wrapper{
+    position: relative;
+    z-index: 2;
+}
+
+input.search-input{
+    background: white;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    padding-left: var(--space-base);
+    border-radius: 50px 50px 50px 20px;
+    border: 1px solid white;
+    transition: border-radius .2s ease-out;
+    height: 48px;
+    width: 100%;
+    caret-color: grey;
+    color: black;
+}
+
+.search-input-wrapper ion-searchbar{
+    -webkit-box-flex: 2;
+    flex: 2;
+}
+
+
+a, a:visited{
+    color: var(--color-link);
+    font-size: var(--font-size-base);
+    text-decoration: none;
+}
+
+:focus-visible{
+    outline: none;
+}
