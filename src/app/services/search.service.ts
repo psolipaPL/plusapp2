@@ -8,7 +8,7 @@ import { catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class SearchService {
-  private productsAPI = 'https://productleague.outsystems.dev/ProductCore/rest/Product'
+  private productsAPI = 'https://productleague-dev.outsystems.app/ProductCore/rest/Product'
   constructor(private http: HttpClient) { }
 
   getData(limit:number, offset:number):Observable<any>{
