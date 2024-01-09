@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -7,5 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  isApp= false;
+
+  constructor(private platform: Platform) {
+    this.initializeApp();
+   }
+
+   initializeApp(){
+    this.platform.ready().then(()=>{
+      if(this.platform.is('capacitor')){
+        this.isApp = true;
+      }
+    })
+   }
 }

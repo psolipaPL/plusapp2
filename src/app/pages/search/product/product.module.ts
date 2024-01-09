@@ -7,7 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { ProductPageRoutingModule } from './product-routing.module';
 
 import { ProductPage } from './product.page';
-import { SearchPage } from '../search/search.page';
+import { CommonComponents } from 'src/app/components/commoncomponents.module';
+import { ProductDetailComponent } from 'src/app/components/product-detail/product-detail.component';
 
 @NgModule({
   imports: [
@@ -15,8 +16,12 @@ import { SearchPage } from '../search/search.page';
     FormsModule,
     IonicModule,
     ProductPageRoutingModule,
+    CommonComponents
   ],
-  declarations: [ProductPage]
+  declarations: [
+    ProductPage,
+    ProductDetailComponent
+  ]
 })
 export class ProductPageModule {
 }

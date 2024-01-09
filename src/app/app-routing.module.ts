@@ -3,10 +3,6 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
-  },
-  {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule)
   },
@@ -33,6 +29,12 @@ const routes: Routes = [
 
 ];
 
+if(isApp()){
+  routes.push({path: '',loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)})
+} else{
+  routes.push({path: '',loadChildren: () => import('./pages//home/home.module').then( m => m.HomePageModule)})
+}
+
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules})
@@ -40,3 +42,7 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
+function isApp(){
+  return (window as any).Capacitor !== undefined;
+}

@@ -1,4 +1,4 @@
-<ion-toolbar class="bottom-bar ion-safe-bottom" slot="start">
+<!--<ion-toolbar class="bottom-bar ion-safe-bottom" slot="start">
   <div style="display: flex; justify-content: space-between; padding: 0 var(--space-base)">
     <div (click)="navigateBack()"><ion-icon name="arrow-back-outline"></ion-icon></div>
     <div></div>
@@ -45,3 +45,8 @@
     </ion-row>
   </ion-grid>
 </ion-toolbar>
+-->
+<app-header></app-header>
+<ion-content [fullscreen]="true">
+  <app-product-detail></app-product-detail>
+</ion-content>

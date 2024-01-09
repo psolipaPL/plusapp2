@@ -18,6 +18,9 @@ ion-searchbar.searchbar-home{
     margin: 12px 16px;
   }
 
-  .display-flex{
-    display: flex;
+ .test{
+    --padding-top:0; 
+    --padding-end: 0;
+    --padding-start: 0;
+    --min-height: unset;
   }

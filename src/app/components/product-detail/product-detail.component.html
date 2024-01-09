@@ -1,0 +1,120 @@
+<div *ngIf="productData" class="content">
+  <div class="product-details-page-layout">
+    <div data-container="" class="background-neutral-0 product-details-header" id="b4-b1-SectionWrapper">
+      <div class="ThemeGrid_Container content-section-full" id="b4-b1-Content">
+        <div data-block="EasyPlaceholder.EasyPlaceholder" class="OSBlockWidget" id="b4-EasyPlaceholder">
+          <div class="easy-placeholder " id="b4-b2-Content">
+            <div data-block="CustomPatterns.ProductHeaderCard" class="OSBlockWidget" id="b4-$b3">
+              <div data-container="" class="product-header background-neutral-0 padding-x-base padding-bottom-base">
+                <div data-container="" class="text-align-center product-detail-image-wrapper">
+                  <div class="product-header-image" id="b4-b3-Image">
+                    <img *ngIf="productData.ImageURL" data-image="" [src]="productData.ImageURL" loading="eager"
+                      fetchpriority="high" alt="">
+                    <div *ngIf="!productData.ImageURL" data-container="" class="display-inline-flex"><i
+                        data-advancedhtml="" class="icon-plus icon-plus-home"></i></div>
+                  </div>
+                  <div class="product-header-logo-top-left ph" id="b4-b3-TopLeftLogo"></div>
+                </div>
+                <div data-container="" class="product-detail-content-wrapper">
+                  <div class="heading1 bold margin-top-m product-header-title" id="b4-b3-Title">
+                    <h1 data-advancedhtml=""><span data-expression=""
+                        class="js-screen-title place">{{productData.Name}}</span></h1>
+                  </div>
+                  <div class="text-neutral-5 margin-top-s product-header-additional-info" id="b4-b3-AdditionalInfo">
+                    <span data-expression="" class="place margin-right-s">Per {{productData.PackageNetContentValue}}
+                      {{productData.PackageTypeValue}} (per
+                      {{productData.BaseUnitPrice_Text}} {{productData.BaseUnitPrice_Price}})</span>
+                  </div>
+                  <div data-container="" class="product-price-wrapper">
+                    <div class="product-header-logo-price-top ph" id="b4-b3-PriceTopLogo"></div>
+                    <div data-container="" class="product-price margin-top-s OSInline">
+                      <div class="font-bold product-header-price-integer" id="b4-b3-PriceInteger">
+                        <span *ngIf="productData.Price" data-expression="" class="place">{{productData.Price -
+                          productData.Price % 1}}.</span>
+                        <span *ngIf="!productData.Price" data-expression="" class="place">0.</span>
+                      </div>
+                      <div class="heading1 font-black product-header-price-decimals" id="b4-b3-PriceDecimals">
+                        <span *ngIf="productData.Price" data-expression="" class="place">{{(productData.Price % 1 *
+                          100).toFixed(0)}}{{((productData.Price % 1 *
+                          100).toFixed(0)).length === 1 ? '0' : ''}}</span>
+                        <span *ngIf="!productData.Price" data-expression="" class="place">00</span>
+                      </div>
+                      <div class="product-header-price-previous ph" id="b4-b3-PricePrevious"></div>
+                    </div>
+                  </div>
+                  <div data-container="" class="margin-top-base product-header-button-wrapper">
+                    <div class="product-header-button ph" id="b4-b3-Button">
+                      <div data-block="Cart.Cart_AddRemoveProducts" class="OSBlockWidget"
+                        id="b4-Cart_AddRemoveProducts">
+                        <div data-container="" class="cart-add-remove-products-wrapper" id="b4-b6-AddRemove_Wrapper">
+                          <div data-block="Interaction.Animate" class="OSBlockWidget" id="b4-b6-$b1">
+                            <div class="animate fade-in fast" id="b4-b6-b1-Content" style="animation-delay: 0ms;">
+                              <button data-button=""
+                                class="btn btn-primary gtm-add-to-cart add-to-cart full-width OSFillParent"
+                                type="button"><span class="place">Toevoegen</span></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="margin-left-m ph" id="b4-b3-LikeLabel">
+                      <div data-container="" class="display-flex center "><a data-link=""
+                          class="display-flex gtm-pdp-add-to-shopping-list-link" href="#"><span class="place">Bewaar in
+                            je
+                            lijstje</span></a></div>
+                    </div>
+                  </div>
+                  <div class="product-header-logos-bottom-info ph" id="b4-b3-LogosBottomInfo"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-block="Utilities.Separator" class="OSBlockWidget" id="b2-$b7">
+      <div data-container="" class="padding-top-none padding-bottom-none">
+        <div data-container="" class="separator separator-horizontal background-neutral-2 separator-size-xs"></div>
+      </div>
+    </div>
+    <div data-container="" class="background-neutral-0 product-details-content" id="b2-b8-SectionWrapper">
+      <div class="ThemeGrid_Container content-section-full" id="b2-b8-Content">
+        <div data-block="Adaptive.ColumnsMediumRight" class="OSBlockWidget" id="b2-$b9">
+          <div data-container=""
+            class="columns columns-medium-right gutter-base tablet-break-all phone-break-all product-details-content-columns">
+            <div class="columns-item" id="b2-b9-Column1">
+              <div data-container="">
+                <div data-block="CustomPatterns.ProductInfoElement" class="OSBlockWidget" id="b2-$b11">
+                  <div data-container=""
+                    class="product-description-wrapper padding-x-base padding-top-m padding-bottom-m margin-top-s">
+                    <div class="bold product-description-title" id="b2-b11-Title"></div>
+                    <div class="ph product-description-body" id="b2-b11-Body"><span class="place">There is no product
+                        information</span></div>
+                  </div>
+                </div>
+                <div data-block="CustomPatterns.ComplementaryInformation" class="OSBlockWidget" id="b2-$b12">
+                  <div data-container=""
+                    class="complementary-information background-neutral-2 text-neutral-7 pdp-complementary-info">
+                    <div class="ph complementary-information-title" id="b2-b12-Title"><span class="place">Over onze
+                        prijs-
+                        en productinformatie</span></div>
+                    <div class="complementary-information-message" id="b2-b12-Message"><span data-expression=""
+                        class="place">Bij PLUS doen we er alles aan om te zorgen dat de prijs- en productinformatie van
+                        de
+                        producten die we verkopen zo accuraat mogelijk is. Echter, omdat producten regelmatig worden
+                        verbeterd, kan productinformatie zoals ingrediënten, voedingswaarden, dieet of
+                        allergie-informatie
+                        geregeld veranderen. We raden u daarom aan om altijd eerst de verpakking te lezen alvorens het
+                        product te nuttigen. Zijn er vragen of opmerkingen dan kan altijd contact opgenomen worden met
+                        onze consumentenservice. </span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="columns-item" id="b2-b9-Column2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

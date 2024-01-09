@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'plusapp2',
+  appId: 'labs.productleague.mobile',
+  appName: 'PLUS',
   webDir: 'www',
   server: {
     androidScheme: 'https'

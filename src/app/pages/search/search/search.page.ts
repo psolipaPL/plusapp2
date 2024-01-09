@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchService } from 'src/app/services/search.service';
 
 @Component({
   selector: 'app-search',
@@ -7,14 +6,10 @@ import { SearchService } from 'src/app/services/search.service';
   styleUrls: ['./search.page.scss'],
 })
 export class SearchPage implements OnInit {
-   responseData: any;
 
-   constructor(private productsApi: SearchService){}
+   constructor(){}
  
    ngOnInit() {
-     this.productsApi.getData().subscribe((data) => {
-       this.responseData = data
-     })
    }
 
 }

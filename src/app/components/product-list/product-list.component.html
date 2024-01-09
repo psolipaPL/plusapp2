@@ -1,89 +1,231 @@
-<ion-list lines="full" *ngIf="productsData">
-  <div class="plp-list-item" *ngFor="let product of productsData" (click)="goToDetails(product.SKU)" >
+<ion-list lines="full" *ngIf="productsData && isApp">
+  <div class="plp-list-item" *ngFor="let product of productsData" (click)="goToDetails(product.SKU)">
     <div class="plp-item-image">
-      <ion-img slot="start"[src]="product.CommonAttributes.URL" (ionError)="product.CommonAttributes.URL = '../../../assets/images/plus.png'">
+      <ion-img slot="start" [src]="product.CommonAttributes.URL"
+        (ionError)="product.CommonAttributes.URL = '../../../assets/images/plus.png'">
       </ion-img>
     </div>
     <ion-label class="plp-list-item-content">
       <div>
-        <div class="plp-item-name">{{product.CommonAttributes.Name}}</div>
-        <div class="plp-item-complementary">{{product.CommonAttributes.Subtitle}}</div>
+        <div class="plp-item-name">{{product.Name}}</div>
+        <div class="plp-item-complementary">Per {{product.PackageNetContentValue}} {{product.PackageTypeValue}} (per
+          {{product.BaseUnitPrice_Text}} {{product.BasicUnitPrice_Price}})</div>
       </div>
       <div class="plp-item-price">
-        <div >{{product.CommonAttributes.Price}}</div>
+        <div>{{product.Price}}</div>
       </div>
     </ion-label>
   </div>
-  </ion-list>
-  <ion-list lines="full" *ngIf="!productsData">
-    <div class="plp-list-item">
-      <div class="plp-item-image">
-        <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+</ion-list>
+<div class="product-list-page-layout" *ngIf="!isApp">
+  <div class="background-neutral-0 padding-top-base plp-list-section">
+    <div class="ThemeGrid_Container content-section-full no-padding-top">
+      <div class="plp-content-wrapper">
+        <div class="plp-results-wrapper">
+          <div class="plp-results-header">
+            <h1>
+              <span>Search</span>
+            </h1>
+            <div class="top-information vertical-align">
+              <div class="display-flex">
+                <span *ngIf="productsData" class="font-semi-bold margin-right-xs">{{productsData.length}}</span>
+                <span *ngIf="!productsData" class="font-semi-bold margin-right-xs">0</span>
+                <span>producten</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="list list-group plp-results-list" *ngIf="productsData">
+              <a *ngFor="let product of productsData" (click)="navigateToProduct(product.SKU)">
+                <div class="list-item cart-item-wrapper plp-item-wrapper">
+                  <div class="list-item-content">
+                    <div class="ph list-item-content-left text-primary-color">
+                      <div class="plp-item-image-container">
+                        <div class="plp-item-image">
+                          <div class="image-loader-wrapper">
+                            <!--<div class="no-image-wrapper"></div>-->
+                            <ion-img slot="start" *ngIf="product.ImageURL" [src]="product.ImageURL"
+                              (ionError)="product.ImageURL = '../../../assets/images/plus.png'">
+                            </ion-img>
+                            <div class="no-image-wrapper" *ngIf="!product.ImageURL"
+                              id="b3-l1-3_1-b2-NoImagePlaceholder">
+                              <div data-block="CustomPatterns.IconPlus" class="OSBlockWidget"
+                                id="b3-l1-3_1-ImgPlaceholderIcon">
+                                <div data-container="" class="display-inline-flex"><i data-advancedhtml=""
+                                    class="icon-plus icon-plus-home icon-4x text-neutral-2"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="list-item-content-center">
+                      <div class="list-item-content-title">
+                        <div class="plp-item-complementary-top"></div>
+                        <div class="plp-item-name">
+                          <h3>
+                            <span data-expression>{{product.Name}}</span>
+                          </h3>
+                        </div>
+                      </div>
+                      <div class="list-item-content-text">
+                        <div class="plp-item-complementary">
+                          <div class="margin-bottom-xs">
+                            <span data-expression>Per {{product.PackageNetContentValue}} {{product.PackageTypeValue}}
+                              (per
+                              {{product.BaseUnitPrice_Text}} €{{product.BaseUnitPrice_Price}})</span>
+                          </div>
+                        </div>
+                        <div class="plp-item-price">
+                          <div class="font-bold product-header-price-integer">
+                            <span *ngIf="product.Price">{{product.Price - product.Price % 1}}.</span>
+                            <span *ngIf="!product.Price">0.</span>
+                          </div>
+                          <div class="font-black product-header-price-decimals">
+                            <span *ngIf="product.Price" data-expression>{{(product.Price % 1 *
+                              100).toFixed(0)}}{{((product.Price % 1 *
+                              100).toFixed(0)).length === 1 ? '0' : ''}}</span>
+                            <span *ngIf="!product.Price">00</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="ph list-item-content-right">
+                      <div data-container="" class="cart-item-wrapper-action__link" id="b3-l1-3_1-b1-AddQuantityDiv">
+                        <div class="plp-item-quantity" id="b3-l1-3_1-b1-Quantity">
+                          <div data-container="" class="btn btn-action add">
+                            <div data-block="CustomPatterns.IconPlus" class="OSBlockWidget" id="b3-l1-3_1-$b4">
+                              <div data-container="" class="display-inline-flex"><i data-advancedhtml=""
+                                  class="icon-plus icon-plus-add-to-cart"></i></div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="list list-group plp-results-list" *ngIf="!productsData">
+              <div *ngFor="let dummy of [].constructor(10)"class="list-item cart-item-wrapper plp-item-wrapper">
+                <div class="list-item-content">
+                  <div class="ph list-item-content-left text-primary-color">
+                    <div class="plp-item-image-container">
+                      <div class="plp-item-image">
+                        <div class="image-loader-wrapper">
+                          <!--<div class="no-image-wrapper"></div>-->
+                          <ion-skeleton-text [animated]="true" style="width:100px; height: 100px;"></ion-skeleton-text>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="list-item-content-center">
+                    <div class="list-item-content-title">
+                      <div class="plp-item-complementary-top"></div>
+                      <div class="plp-item-name">
+                        <h3>
+                          <ion-skeleton-text [animated]="true" style="width:100px; height: 20px;"></ion-skeleton-text>
+                        </h3>
+                      </div>
+                    </div>
+                    <div class="list-item-content-text">
+                      <div class="plp-item-complementary">
+                        <div class="margin-bottom-xs">
+                          <ion-skeleton-text [animated]="true" style="width:100px; height: 20px;"></ion-skeleton-text>
+                        </div>
+                      </div>
+                      <div class="plp-item-price">
+                          <ion-skeleton-text [animated]="true" style="width:50px; height: 20px;"></ion-skeleton-text>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <ion-label class="plp-list-item-content">
-        <div>
-          <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-          <div class="plp-item-complementary"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-        </div>
-        <div class="plp-item-price">
-          <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
-        </div>
-      </ion-label>
     </div>
-    <div class="plp-list-item">
-      <div class="plp-item-image">
-        <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+  </div>
+</div>
+
+<ion-list lines="full" *ngIf="!productsData && isApp">
+  <div class="plp-list-item" *ngIf="isApp">
+    <div class="plp-item-image">
+      <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+    </div>
+    <ion-label class="plp-list-item-content">
+      <div>
+        <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
+        <div class="plp-item-complementary"><ion-skeleton-text [animated]="true"
+            style="width: 120px"></ion-skeleton-text></div>
       </div>
-      <ion-label class="plp-list-item-content">
-        <div>
-          <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-          <div class="plp-item-complementary"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-        </div>
-        <div class="plp-item-price">
-          <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
-        </div>
-      </ion-label>
-    </div>
-    <div class="plp-list-item">
-      <div class="plp-item-image">
-        <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+      <div class="plp-item-price">
+        <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
       </div>
-      <ion-label class="plp-list-item-content">
-        <div>
-          <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-          <div class="plp-item-complementary"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-        </div>
-        <div class="plp-item-price">
-          <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
-        </div>
-      </ion-label>
+    </ion-label>
+  </div>
+  <div class="plp-list-item">
+    <div class="plp-item-image">
+      <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
     </div>
-    <div class="plp-list-item">
-      <div class="plp-item-image">
-        <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+    <ion-label class="plp-list-item-content">
+      <div>
+        <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
+        <div class="plp-item-complementary"><ion-skeleton-text [animated]="true"
+            style="width: 120px"></ion-skeleton-text></div>
       </div>
-      <ion-label class="plp-list-item-content">
-        <div>
-          <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-          <div class="plp-item-complementary"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-        </div>
-        <div class="plp-item-price">
-          <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
-        </div>
-      </ion-label>
-    </div>
-    <div class="plp-list-item">
-      <div class="plp-item-image">
-        <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+      <div class="plp-item-price">
+        <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
       </div>
-      <ion-label class="plp-list-item-content">
-        <div>
-          <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-          <div class="plp-item-complementary"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
-        </div>
-        <div class="plp-item-price">
-          <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
-        </div>
-      </ion-label>
+    </ion-label>
+  </div>
+  <div class="plp-list-item">
+    <div class="plp-item-image">
+      <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
     </div>
-    </ion-list>
+    <ion-label class="plp-list-item-content">
+      <div>
+        <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
+        <div class="plp-item-complementary"><ion-skeleton-text [animated]="true"
+            style="width: 120px"></ion-skeleton-text></div>
+      </div>
+      <div class="plp-item-price">
+        <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
+      </div>
+    </ion-label>
+  </div>
+  <div class="plp-list-item">
+    <div class="plp-item-image">
+      <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+    </div>
+    <ion-label class="plp-list-item-content">
+      <div>
+        <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
+        <div class="plp-item-complementary"><ion-skeleton-text [animated]="true"
+            style="width: 120px"></ion-skeleton-text></div>
+      </div>
+      <div class="plp-item-price">
+        <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
+      </div>
+    </ion-label>
+  </div>
+  <div class="plp-list-item">
+    <div class="plp-item-image">
+      <ion-skeleton-text [animated]="true" style="width: 100px; height: 100px;"></ion-skeleton-text>
+    </div>
+    <ion-label class="plp-list-item-content">
+      <div>
+        <div class="plp-item-name"><ion-skeleton-text [animated]="true" style="width: 120px"></ion-skeleton-text></div>
+        <div class="plp-item-complementary"><ion-skeleton-text [animated]="true"
+            style="width: 120px"></ion-skeleton-text></div>
+      </div>
+      <div class="plp-item-price">
+        <div><ion-skeleton-text [animated]="true" style="width: 20px"></ion-skeleton-text></div>
+      </div>
+    </ion-label>
+  </div>
+</ion-list>
+<ion-infinite-scroll (ionInfinite)="loadData($event)">
+  <ion-infinite-scroll-content loading-text="Please wait..." loading-spinner="bubbles"></ion-infinite-scroll-content>
+</ion-infinite-scroll>
